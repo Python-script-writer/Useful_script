@@ -1,0 +1,9 @@
+# PS1: [time][work_directory]
+PS1='\[\e[m\]\[\e[12;93m\][\t]\[\e[12;32m\][\w]: \[\e[m\]\[\e[12;37m\]'
+
+# git branch; PS1=[git_branch]PS1
+git_branch() {
+    git rev-parse --abbrev-ref HEAD 2>/dev/null | sed -e 's/.*/[\0]/'
+}
+export PS1="\[\e[m\]\[\e[12;31m\]\$(git_branch)$PS1"
+
